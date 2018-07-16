@@ -1,0 +1,19 @@
+{
+  "name": "supplychainethereum",
+  "version": "1.0.0",
+  "description": "A proof of concept for supply chain managemanet on the ethereum blockchain.",
+  "main": "truffle-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rpittrer/SupplyChainEthereum.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rpittrer/SupplyChainEthereum/issues"
+  },
+  "homepage": "https://github.com/Rpittrer/SupplyChainEthereum#readme"
+}
