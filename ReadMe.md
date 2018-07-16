@@ -1,6 +1,6 @@
-# VRVOT
+# SupplyChainEthereum
 
-
+A proof of concept for supply chain managemanet on the ethereum blockchain.
 
 ## Getting Started
 
@@ -9,6 +9,7 @@ Clone this repository
 ### Prerequisites
 
 install truffle globally
+
 install ganache
 <!-- 
 ```
