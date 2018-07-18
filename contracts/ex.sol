@@ -53,8 +53,16 @@ contract Shipper_exporter {
             _demurrage_rates
         );
 
-        //shipper pay exporter half of transport cost…. receipt generated (event 1)
-        //assets loaded onto ship
+        emit LogShipment(
+            shipment_counter,
+            msg.sender,
+            0x0,
+            _name,
+            _description,
+            _load_weight,
+            _load_value,
+            _transport_charges,
+            _demurrage_rates);
     }
 
     function shipmentDamages() public {
