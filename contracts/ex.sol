@@ -1,9 +1,9 @@
 pragma solidity ^0.4.18;
 
-contract Shipper_Carrier {
+contract Shipper_exporter {
     struct Shipment {
         uint shipment_id;
-        address carrier_id;
+        address exporter_id;
         address shipper_id;
         string name;
         string description;
@@ -14,11 +14,11 @@ contract Shipper_Carrier {
     }
 
     mapping(uint => Shipment) public shipments;
-    uint shipment_couter;
+    uint shipment_counter;
 
     event LogShipment(
         uint indexed shipment_id,
-        address indexed carrier_id,
+        address indexed exporter_id,
         address indexed shipper_id,
         string name,
         string description,
@@ -29,9 +29,9 @@ contract Shipper_Carrier {
     );
 
     function loadShipment(
-        uint _shipment_id,
-        address _carrier_id,
-        address _shipper_id,
+    // uint _shipment_id,
+    // address _exporter_id,
+    // address _shipper_id,
         string _name,
         string _description,
         uint _load_weight,
@@ -39,20 +39,32 @@ contract Shipper_Carrier {
         uint _transport_charges,
         uint _demurrage_rates
     ) public {
+        shipment_counter++;
 
+        shipments[shipment_counter] = Shipment(
+            shipment_counter,
+            msg.sender,
+            0x0,
+            _name,
+            _description,
+            _load_weight,
+            _load_value,
+            _transport_charges,
+            _demurrage_rates
+        );
 
-        //shipper pay carrier half of transport cost…. receipt generated (event 1)
+        //shipper pay exporter half of transport cost…. receipt generated (event 1)
         //assets loaded onto ship
     }
 
     function shipmentDamages() public {
-        //risk insurance of 5$ per pound carrier must pay in case of damages
+        //risk insurance of 5$ per pound exporter must pay in case of damages
     }
 
     function ShipmentDelivery() public {
         //if load delivered within 30 days of signing receipt rest half of payment to be made provided no damages.
         //else if within 30 days but some damages then rates adjusted according to damages
-        //else if  30 days exceeded carrier must pay demurrage according to mutually agreed rates
+        //else if  30 days exceeded exporter must pay demurrage according to mutually agreed rates
         //else if 30 days limit exceeded and also other damages then further damages + demurrage applicable
     }
 
