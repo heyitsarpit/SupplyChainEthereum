@@ -1,6 +1,6 @@
 pragma solidity ^0.4.18;
 
-contract Shipper_exporter {
+contract Shipper_Exporter {
     struct Shipment {
         uint shipment_id;
         address exporter_id;
@@ -29,9 +29,6 @@ contract Shipper_exporter {
     );
 
     function loadShipment(
-    // uint _shipment_id,
-    // address _exporter_id,
-    // address _shipper_id,
         string _name,
         string _description,
         uint _load_weight,
@@ -63,6 +60,10 @@ contract Shipper_exporter {
             _load_value,
             _transport_charges,
             _demurrage_rates);
+    }
+
+    function getNumberOfShipments() public view returns (uint) {
+        return shipment_counter;
     }
 
     function shipmentDamages() public {
