@@ -1,6 +1,8 @@
 pragma solidity ^0.4.18;
 
-contract Shipper_Exporter {
+import "./Captain.sol";
+
+contract Shipper_Exporter is Captain {
     struct Shipment {
         uint shipment_id;
         address exporter_id;
@@ -10,7 +12,7 @@ contract Shipper_Exporter {
         uint load_weight;
         uint load_value;
         uint transport_charges; //depend on load_weight
-        uint demurrage_rates; //depend on load_value
+        uint demurrage_percentage; //depend on load_value
     }
 
     mapping(uint => Shipment) public shipments;
@@ -25,7 +27,7 @@ contract Shipper_Exporter {
         uint load_weight,
         uint load_value,
         uint transport_charges,
-        uint demurrage_rates
+        uint demurrage_percentage
     );
 
     function loadShipment(
@@ -34,7 +36,7 @@ contract Shipper_Exporter {
         uint _load_weight,
         uint _load_value,
         uint _transport_charges,
-        uint _demurrage_rates
+        uint _demurrage_percentage
     ) public {
         shipment_counter++;
 
@@ -47,7 +49,7 @@ contract Shipper_Exporter {
             _load_weight,
             _load_value,
             _transport_charges,
-            _demurrage_rates
+            _demurrage_percentage
         );
 
         emit LogShipment(
@@ -59,11 +61,15 @@ contract Shipper_Exporter {
             _load_weight,
             _load_value,
             _transport_charges,
-            _demurrage_rates);
+            _demurrage_percentage);
     }
 
     function getNumberOfShipments() public view returns (uint) {
         return shipment_counter;
+    }
+
+    function kill() public onlyCaptain {
+        selfdestruct(captain);
     }
 
     function shipmentDamages() public {
@@ -72,8 +78,8 @@ contract Shipper_Exporter {
 
     function ShipmentDelivery() public {
         //if load delivered within 30 days of signing receipt rest half of payment to be made provided no damages.
-        //else if within 30 days but some damages then rates adjusted according to damages
-        //else if  30 days exceeded exporter must pay demurrage according to mutually agreed rates
+        //else if within 30 days but some damages then percentage adjusted according to damages
+        //else if  30 days exceeded exporter must pay demurrage according to mutually agreed percentage
         //else if 30 days limit exceeded and also other damages then further damages + demurrage applicable
     }
 
