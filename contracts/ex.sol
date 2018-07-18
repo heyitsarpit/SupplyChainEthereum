@@ -1,7 +1,7 @@
 pragma solidity ^0.4.18;
 
 contract Shipper_Carrier {
-    struct shipment {
+    struct Shipment {
         uint shipment_id;
         address carrier_id;
         address shipper_id;
@@ -12,6 +12,9 @@ contract Shipper_Carrier {
         uint transport_charges; //depend on load_weight
         uint demurrage_rates; //depend on load_value
     }
+
+    mapping(uint => Shipment) public shipments;
+    uint shipment_couter;
 
     event LogShipment(
         uint indexed shipment_id,
