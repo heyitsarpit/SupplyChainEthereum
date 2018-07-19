@@ -1,8 +1,7 @@
 pragma solidity ^0.4.18;
 
-import "./Captain.sol";
 
-contract Shipper_Exporter is Captain {
+contract Shipper_Exporter {
     struct Shipment {
         uint shipment_id;
         address exporter_id;
@@ -69,9 +68,6 @@ contract Shipper_Exporter is Captain {
         return shipment_counter;
     }
 
-    function kill() public onlyCaptain {
-        selfdestruct(captain);
-    }
 
     function shipmentDamages(
         
