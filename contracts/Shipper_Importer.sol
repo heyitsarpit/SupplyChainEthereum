@@ -1,7 +1,7 @@
 pragma solidity ^0.4.18;
 
 
-contract Shipper_Exporter {
+contract Shipper_Importer {
     struct Shipment {
         uint shipment_id;
         address exporter_id;
@@ -9,7 +9,8 @@ contract Shipper_Exporter {
         string name;
         string description;
         uint load_weight;
-        uint load_value;   
+        uint load_value;
+        uint transport_charges; //depend on load_weight    
     }
 
     mapping(uint => Shipment) public shipments;
@@ -22,14 +23,17 @@ contract Shipper_Exporter {
         string name,
         string description,
         uint load_weight,
-        uint load_value
+        uint load_value,
+        uint transport_charges
+      
     );
 
     function loadShipment(
         string _name,
         string _description,
         uint _load_weight,
-        uint _load_value
+        uint _load_value,
+        uint _transport_charges
         
     ) public {
         shipment_counter++;
@@ -41,7 +45,8 @@ contract Shipper_Exporter {
             _name,
             _description,
             _load_weight,
-            _load_value
+            _load_value,
+            _transport_charges
             
         );
 
@@ -52,7 +57,8 @@ contract Shipper_Exporter {
             _name,
             _description,
             _load_weight,
-            _load_value
+            _load_value,
+            _transport_charges
             );
     }
 
