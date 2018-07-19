@@ -11,11 +11,11 @@ contract Shipper_Exporter {
         string name;
         string description;
         uint load_weight;
-        uint load_value;   
+        uint load_value;
     }
 
     uint constant demmurage = 50;
-    
+
     mapping(uint => Shipment) public shipments;
     uint shipment_counter;
 
@@ -47,7 +47,7 @@ contract Shipper_Exporter {
             _description,
             _load_weight,
             _load_value
-            
+
         );
 
         emit LogShipment(
@@ -59,16 +59,16 @@ contract Shipper_Exporter {
             _description,
             _load_weight,
             _load_value
-            );
+        );
     }
 
     function getNumberOfShipments() public view returns (uint) {
         return shipment_counter;
     }
-    
+
 
     // function shipmentDamages(
-        
+
     //     uint _load_weight,
     //     uint _unload_weight
     // ) public {
@@ -102,11 +102,11 @@ contract Shipper_Exporter {
     //     {
 
     //     }
-        
+
     //     //else if  30 days exceeded exporter must pay demurrage according to mutually agreed percentage
     //     else if(shipment_counter > 30 && damages === 0 )
     //     {
-            
+
     //     }
     //     //else if 30 days limit exceeded and also other damages then further damages + demurrage applicable
     //     else if(shipment_counter > 30 && damages !== 0 )
