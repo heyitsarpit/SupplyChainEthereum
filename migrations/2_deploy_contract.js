@@ -1,4 +1,4 @@
-var Ship = artifacts.require("./Shipper_Exporter.sol");
+var Ship = artifacts.require("./Shipper_Importer.sol");
 
 module.exports = function(deployer) {
   deployer.deploy(Ship);
