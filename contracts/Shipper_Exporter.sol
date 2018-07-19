@@ -2,19 +2,21 @@ pragma solidity ^0.4.18;
 
 
 contract Shipper_Exporter {
+
     struct Shipment {
         uint shipment_id;
         address exporter_id;
         address shipper_id;
+        uint load_date;
         string name;
         string description;
         uint load_weight;
-        uint unload_weight;
-        uint load_value;
-        uint transport_charges; //depend on load_weight
-        
+        uint load_price;
+        uint transport_charges; //depend on load_weight     
     }
 
+    uint constant demmurage = 0.5;
+    
     mapping(uint => Shipment) public shipments;
     uint shipment_counter;
 
@@ -22,34 +24,33 @@ contract Shipper_Exporter {
         uint indexed shipment_id,
         address indexed exporter_id,
         address indexed shipper_id,
+        uint load_date,
         string name,
         string description,
         uint load_weight,
-        uint load_value,
-        uint transport_charges
-      
+        uint load_price,
+        uint transport_charge
     );
 
     function loadShipment(
         string _name,
         string _description,
         uint _load_weight,
-        uint _load_value,
-        uint _transport_charges
-        
+        uint _load_price,
+        uint _transport_charges     
     ) public {
         shipment_counter++;
-
+        uint load_date = block.timestamp;
         shipments[shipment_counter] = Shipment(
             shipment_counter,
             msg.sender,
             0x0,
+            load_date,
             _name,
             _description,
             _load_weight,
-            _load_value,
-            _transport_charges
-            
+            _load_price,
+            _transport_charges    
         );
 
         emit LogShipment(
@@ -59,7 +60,7 @@ contract Shipper_Exporter {
             _name,
             _description,
             _load_weight,
-            _load_value,
+            _load_price,
             _transport_charges
             );
     }
@@ -67,10 +68,9 @@ contract Shipper_Exporter {
     function getNumberOfShipments() public view returns (uint) {
         return shipment_counter;
     }
-
+    
 
     function shipmentDamages(
-        
         uint _load_weight,
         uint _unload_weight
     ) public {
@@ -79,9 +79,9 @@ contract Shipper_Exporter {
     }
 
     function demurrageClaim(
-        uint _load_value
+        uint _load_price
     ) public {
-        var demurrage = _load_value/3 ;
+        var demurrage = _load_price/3 ;
     }
 
     function ShipmentDelivery(
@@ -89,29 +89,29 @@ contract Shipper_Exporter {
         string _description,
         uint _load_weight,
         uint _unload_weight,
-        uint _load_value,
+        uint _load_price,
         uint _transport_charges
 
     ) public {
 
         //if load delivered within 30 days of signing receipt rest half of payment to be made provided no damages.
-        if(shipment_counter <= 30 && damages === 0)
+        if(shipment_counter <= 30 && damages == 0)
         {
 
         }
         //else if within 30 days but some damages then percentage adjusted according to damages
-        else if(shipment_counter <= 30 && damages !== 0 )
+        else if(shipment_counter <= 30 && damages != 0 )
         {
 
         }
         
         //else if  30 days exceeded exporter must pay demurrage according to mutually agreed percentage
-        else if(shipment_counter > 30 && damages === 0 )
+        else if(shipment_counter > 30 && damages == 0 )
         {
             
         }
         //else if 30 days limit exceeded and also other damages then further damages + demurrage applicable
-        else if(shipment_counter > 30 && damages !== 0 )
+        else if(shipment_counter > 30 && damages != 0 )
         {
 
         }
