@@ -61,45 +61,39 @@ contract Shipper_Importer {
     }
 
     function demurrageClaim(
-        uint _load_value
+        uint time_hours
     ) public {
-        uint demurrage_percent = _load_value/3 ;
-        return  demurrage_percent;
+        uint demurrage_cost = time_hours * 0.2;    //0.2 ether
+        return  demurrage_cost;
     }
 
 function ShipmentDelivery(
-        
         uint _load_weight,
         uint _unload_weight,
         uint _load_value,
         uint _transport_charges
-
     ) public {
-
+        uint unload_date = block.timestamp;
+        uint load_date;
+        uint time_days = (unload_date - load_date) / 60 / 60 / 24;
+        uint time_exceeded_hours = (time_days - 30) * 24; 
+        uint payment = transport_charges;
         //if load delivered within 30 days of signing receipt full payment to be made provided no damages.
-        if(shipment_counter <= 30 && unload_weight = load_weight)
-        {
-        
-
+        if(time_days <= 30 && unload_weight = load_weight){
+            payment += 0;
         }
         //else if within 30 days but some damages then percentage adjusted according to damages
-        else if(shipment_counter <= 30 && unload_weight < load_weight )
-        {
-
+        else if(shipment_counter <= 30 && unload_weight < load_weight ){
+            payment += shipmentDamages(_load_weight, _unload_weight);
         }
         
         //else if  30 days exceeded exporter must pay demurrage according to mutually agreed percentage
-        else if(shipment_counter > 30 && unload_weight = load_weight )
-        {
-            
+        else if(shipment_counter > 30 && unload_weight = load_weight ){
+            payment += demurrageClaim(time_exceeded_hours);
         }
         //else if 30 days limit exceeded and also other damages then further damages + demurrage applicable
-        else if(shipment_counter > 30 && unload_weight < load_weight )
-        {
-
-        }
-        else if (unload_weight > load_weight){
-
+        else if(shipment_counter > 30 && unload_weight < load_weight ){
+            payment += demurrageClaim(time_exceeded_hours) + shipmentDamages(_load_weight, _unload_weight);
         }
         emit unloadLogShipment(
             msg.sender,
@@ -111,3 +105,4 @@ function ShipmentDelivery(
             _transport_charges
         );
     }
+}
