@@ -1,11 +1,12 @@
 pragma solidity ^0.4.18;
 
+import "./Shipper_Exporter.sol";
 
 contract Shipper_Importer {
     struct Shipment {
         uint shipment_id;
-        address importer_id;
-        address shipper_id;
+        address importer;
+        address shipper;
         string name;
         string description;
         uint unload_weight;
@@ -20,14 +21,9 @@ contract Shipper_Importer {
 
     event unloadLogShipment(
         uint indexed shipment_id,
-        address indexed importer_id,
-        address indexed shipper_id,
-        string name,
-        string description,
-        uint unload_weight,
-        uint load_value,
-        uint transport_charges
-
+        address indexed importer,
+        address indexed shipper,
+        uint payment
     );
 
     // function unloadShipment(
@@ -49,12 +45,12 @@ contract Shipper_Importer {
     //         _transport_charges
     //         );
     // }
-    //}
+    // }
 
     function shipmentDamages(
         uint _load_weight,
         uint _unload_weight
-    ) public returns (uint){
+    ) private returns (uint){
         //damages of 2$ per gallon shipper must pay in case of damages
         uint damages_price = (_load_weight - _unload_weight) * 5;
         return damages_price;
@@ -62,7 +58,7 @@ contract Shipper_Importer {
 
     function demurrageClaim(
         uint time_hours
-    ) public returns (
+    ) private returns (
         uint
     ){
         uint demurrage_cost = time_hours * 2;
@@ -70,14 +66,14 @@ contract Shipper_Importer {
         return demurrage_cost;
     }
 
-    function ShipmentDelivery(
-        uint load_weight,
+    function ShipmentDelivered(
+        uint shipment_id,
         uint unload_weight,
-        uint _transport_charges
-    ) payable public {
+        uint load_date
+    ) public payable{
+        uint load_weight;  //pulled through web3
         uint unload_date = block.timestamp;
-        uint load_date;
-        uint time_days = (unload_date - load_date) / 60 / 60 / 24;
+        uint time_days = (unload_date - load_date) / 60 / 60 / 24;//  emit unloadLogShipment//  emit unloadLogShipment(
         uint time_exceeded_hours = (time_days - 30) * 24;
         uint payment = transport_charges;
         //if load delivered within 30 days of signing receipt full payment to be made provided no damages.
@@ -88,7 +84,6 @@ contract Shipper_Importer {
         else if (shipment_counter <= 30 && unload_weight < load_weight) {
             payment += shipmentDamages(load_weight, unload_weight);
         }
-
         //else if  30 days exceeded exporter must pay demurrage according to mutually agreed percentage
         else if (shipment_counter > 30 && unload_weight == load_weight) {
             payment += demurrageClaim(time_exceeded_hours);
@@ -97,14 +92,14 @@ contract Shipper_Importer {
         else if (shipment_counter > 30 && unload_weight < load_weight) {
             payment += demurrageClaim(time_exceeded_hours) + shipmentDamages(load_weight, unload_weight);
         }
-        //  emit unloadLogShipment(
-        //     msg.sender,
-        //     0x0,
-        //     _name,
-        //     _description,
-        //     unload_weight,
-        //     _load_value,
-        //     _transport_charges
-        // );
+
+
+
+        emit unloadLogShipment(
+            shipment_id,
+            msg.sender,
+            0x0,
+            payment
+        );
     }
 }

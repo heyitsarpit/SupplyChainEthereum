@@ -36,7 +36,7 @@ contract Shipper_Exporter {
         uint _load_weight,
         uint _load_value
     ) public {
-        shipment_counter++;
+        shipment_counter = block.number;
         uint load_date = block.timestamp;
         shipments[shipment_counter] = Shipment(
             shipment_counter,
@@ -65,54 +65,4 @@ contract Shipper_Exporter {
     function getNumberOfShipments() public view returns (uint) {
         return shipment_counter;
     }
-
-
-    // function shipmentDamages(
-
-    //     uint _load_weight,
-    //     uint _unload_weight
-    // ) public {
-    //     //damages of 5$ per pound shipper must pay in case of damages
-    //     var damages = ( _load_weight -  _unload_weight) * 5;
-    // }
-
-    // function demurrageClaim(
-    //     uint _load_value
-    // ) public {
-    //     var demurrage = _load_value/3 ;
-    // }
-
-    // function ShipmentDelivery(
-    //     string _name,
-    //     string _description,
-    //     uint _load_weight,
-    //     uint _unload_weight,
-    //     uint _load_value,
-    //     uint _transport_charges
-
-    // ) public {
-
-    //     //if load delivered within 30 days of signing receipt rest half of payment to be made provided no damages.
-    //     if(shipment_counter <= 30 && damages === 0)
-    //     {
-
-    //     }
-    //     //else if within 30 days but some damages then percentage adjusted according to damages
-    //     else if(shipment_counter <= 30 && damages !== 0 )
-    //     {
-
-    //     }
-
-    //     //else if  30 days exceeded exporter must pay demurrage according to mutually agreed percentage
-    //     else if(shipment_counter > 30 && damages === 0 )
-    //     {
-
-    //     }
-    //     //else if 30 days limit exceeded and also other damages then further damages + demurrage applicable
-    //     else if(shipment_counter > 30 && damages !== 0 )
-    //     {
-
-    //     }
-    // }
-
 }
