@@ -74,7 +74,7 @@ contract Shipper_Importer {
         uint load_weight,
         uint unload_weight,
         uint _transport_charges
-    ) public {
+    ) payable public {
         uint unload_date = block.timestamp;
         uint load_date;
         uint time_days = (unload_date - load_date) / 60 / 60 / 24;
