@@ -36,7 +36,7 @@ contract Shipper_Exporter {
         uint _load_weight,
         uint _load_value
     ) public {
-        shipment_counter++;
+        shipment_counter = block.number;
         uint load_date = block.timestamp;
         shipments[shipment_counter] = Shipment(
             shipment_counter,
