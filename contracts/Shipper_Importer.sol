@@ -1,5 +1,6 @@
 pragma solidity ^0.4.18;
 
+import "./Shipper_Exporter.sol";
 
 contract Shipper_Importer {
     struct Shipment {
@@ -67,11 +68,11 @@ contract Shipper_Importer {
 
     function ShipmentDelivered(
         uint shipment_id,
-        uint unload_weight
-    ) public {
+        uint unload_weight,
+        uint load_date
+    ) public payable{
         uint load_weight;  //pulled through web3
         uint unload_date = block.timestamp;
-        uint load_date;
         uint time_days = (unload_date - load_date) / 60 / 60 / 24;//  emit unloadLogShipment//  emit unloadLogShipment(
         uint time_exceeded_hours = (time_days - 30) * 24;
         uint payment = transport_charges;
@@ -91,6 +92,8 @@ contract Shipper_Importer {
         else if (shipment_counter > 30 && unload_weight < load_weight) {
             payment += demurrageClaim(time_exceeded_hours) + shipmentDamages(load_weight, unload_weight);
         }
+
+
 
         emit unloadLogShipment(
             shipment_id,
