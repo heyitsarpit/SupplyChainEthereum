@@ -93,8 +93,6 @@ contract Shipper_Importer {
             payment += demurrageClaim(time_exceeded_hours) + shipmentDamages(load_weight, unload_weight);
         }
 
-
-
         emit unloadLogShipment(
             shipment_id,
             msg.sender,
