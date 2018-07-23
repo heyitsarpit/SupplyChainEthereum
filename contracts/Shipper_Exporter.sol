@@ -13,8 +13,8 @@ contract Shipper_Exporter {
         uint load_weight;
         uint load_value;
     }
-
-    uint constant demmurage = 50;
+    
+    uint loadWeight;
 
     mapping(uint => Shipment) public shipments;
     uint shipment_counter;
@@ -33,11 +33,12 @@ contract Shipper_Exporter {
     function loadShipment(
         string _name,
         string _description,
-        uint _load_weight,
-        uint _load_value
+        uint load_weight,
+        uint load_value
     ) public {
         shipment_counter = block.number;
         uint load_date = block.timestamp;
+        loadWeight = load_weight;
         shipments[shipment_counter] = Shipment(
             shipment_counter,
             msg.sender,
@@ -45,8 +46,8 @@ contract Shipper_Exporter {
             load_date,
             _name,
             _description,
-            _load_weight,
-            _load_value
+            load_weight,
+            load_value
 
         );
 
@@ -57,8 +58,8 @@ contract Shipper_Exporter {
             load_date,
             _name,
             _description,
-            _load_weight,
-            _load_value
+            load_weight,
+            load_value
         );
     }
 

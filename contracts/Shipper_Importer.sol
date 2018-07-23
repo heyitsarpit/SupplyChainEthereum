@@ -28,11 +28,13 @@ contract Shipper_Importer {
     );
 
     function shipmentDamages(
-        uint _load_weight,
-        uint _unload_weight
+        
+        uint unload_weight
     ) private returns (uint){
+        Shipper_Exporter s = new Shipper_Exporter();
+        uint load_weight = s.loadWeight;
         //damages of 2$ per gallon shipper must pay in case of damages
-        uint damages_price = (_load_weight - _unload_weight) * 5;
+        uint damages_price = (load_weight - unload_weight) * 5;
         return damages_price;
     }
 
