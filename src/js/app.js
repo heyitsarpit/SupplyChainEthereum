@@ -38,7 +38,7 @@ App = {
         App.contracts.Shipper_Exporter.deployed().then(instance => {
             instance.LogShipment({}, {}).watch((error, event) => {
                 if (!error) {
-                    $('#events').append(
+                    console.log(
                         '<li class="list-group-item">' +
                             event.args.shipemnt_counter +
                             event.args.exporter_id +
