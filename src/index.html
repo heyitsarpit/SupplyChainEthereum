@@ -47,25 +47,25 @@
 							<form>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Shipment Name</label>
-									<input class="form-control" id="exampleFormControlInput1" data-target="_name">
+									<input class="form-control" id="exampleFormControlInput1" data-target="name">
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Load Weight</label>
-									<input class="form-control" id="exampleFormControlInput1" placeholder="10 gallon" data-target="_load_weight">
+									<input class="form-control" id="exampleFormControlInput1" placeholder="10 gallon" data-target="load_weight">
 								</div>
 								<div class="form-group">
-									<label for="exampleFormControlInput1">Load Price</label>
-									<input class="form-control" id="exampleFormControlInput1" placeholder="100 Ether" data-target="_load_price">
+									<label for="exampleFormControlInput1">Load value</label>
+									<input class="form-control" id="exampleFormControlInput1" placeholder="100 Ether" data-target="load_price">
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlTextarea1">Shipment Description</label>
-									<textarea class="form-control" id="exampleFormControlTextarea1" data-target="_description" rows="3"></textarea>
+									<textarea class="form-control" id="exampleFormControlTextarea1" data-target="description" rows="3"></textarea>
 								</div>
 							</form>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Save changes</button>
+							<button type="button" class="btn btn-primary" onclick="App.loadShipment(); return false;">Save changes</button>
 						</div>
 					</div>
 				</div>

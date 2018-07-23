@@ -24,10 +24,10 @@ App = {
         return App.initContract();
     },
 
-    initContract: function() {
+    initContract: () =>{
         $.getJSON('Shipper_Exporter.json', artifact => {
             // get the contract artifact file and use it to instantiate a truffle contract abstraction
-            App.contracts.ChainList = TruffleContract(artifact);
+            App.contracts.Shipper_Exporter = TruffleContract(artifact);
             // set the provider for our contracts
             App.contracts.Shipper_Exporter.setProvider(App.web3Provider);
             // listen to events
