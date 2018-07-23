@@ -1,135 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>ChainList from ChainSkills</title>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<title>ChainList from ChainSkills</title>
 
-  <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
-  <!-- Application -->
-  <link href="css/app.css" rel="stylesheet">
+		<!-- Application -->
+		<link href="css/app.css" rel="stylesheet">
 
-</head>
+	</head>
 
-<body>
-  <div class="container">
-    <div class="jumbotron text-center">
-      <h1>Supply Chain Platform</h1>
-    </div>
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Load Shipment 
-</button>
+	<body>
+		<div class="container">
+			<div class="jumbotron text-center">
+				<h1>Supply Chain Platform</h1>
+			</div>
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+				Load Shipment
+			</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-    <form>
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Shipment Name</label>
-        <input class="form-control" id="exampleFormControlInput1">
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Load Weight</label>
-        <input class="form-control" id="exampleFormControlInput1" placeholder="10 gallon">
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Load Price</label>
-        <input class="form-control" id="exampleFormControlInput1" placeholder="100 Ether">
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Shipment Description</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-      </div>
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
-  </div>
-</div>
-</div>
-</div>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
-  Payment
-</button>
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Shipment Name</label>
+									<input class="form-control" id="exampleFormControlInput1">
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Load Weight</label>
+									<input class="form-control" id="exampleFormControlInput1" placeholder="10 gallon">
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Load Price</label>
+									<input class="form-control" id="exampleFormControlInput1" placeholder="100 Ether">
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlTextarea1">Shipment Description</label>
+									<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+				Payment
+			</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Load Value</label>
-            <input class="form-control" id="exampleInputEmail1">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Amount Payable</label>
-            <input class="form-control" id="exampleInputPassword1" >
-          </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="exampleInputEmail1">Load Value</label>
+									<input class="form-control" id="exampleInputEmail1">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword1">Amount Payable</label>
+									<input class="form-control" id="exampleInputPassword1">
+								</div>
+								<div class="form-group form-check">
+									<input type="checkbox" class="form-check-input" id="exampleCheck1">
+									<label class="form-check-label" for="exampleCheck1">Check me out</label>
+								</div>
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
 
-    <div id="footer" class="container">
-      <nav class="navbar navbar-default navbar-fixed-bottom">
-        <div class="navbar-inner navbar-content-center text-center">
-          <p class="text-muted" credit>
-            <a href="http://chainskills.com">ChainSkills</a> - &copy; 2017 -
-            <a href="https://twitter.com/sarbogast">Archit Aggarwal</a> and
-            <a href="https://twitter.com/eloudsa">Arpit Bharti</a>
-          </p>
-        </div>
-      </nav>
-    </div>
+			<div id="footer" class="container">
+				<nav class="navbar navbar-default navbar-fixed-bottom">
+					<div class="navbar-inner navbar-content-center text-center">
+						<p class="text-muted" credit>
+							<a href="http://chainskills.com">ChainSkills</a> - &copy; 2017 -
+							<a href="https://twitter.com/sarbogast">Archit Aggarwal</a> and
+							<a href="https://twitter.com/eloudsa">Arpit Bharti</a>
+						</p>
+					</div>
+				</nav>
+			</div>
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/web3.min.js"></script>
-    <script src="js/truffle-contract.js"></script>
-    <script src="js/app.js"></script>
-</body>
+			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+			<!-- Include all compiled plugins (below), or include individual files as needed -->
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/web3.min.js"></script>
+			<script src="js/truffle-contract.js"></script>
+			<script src="js/app.js"></script>
+	</body>
 
 </html>
