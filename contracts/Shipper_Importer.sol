@@ -27,27 +27,6 @@ contract Shipper_Importer {
         uint payment
     );
 
-    // function unloadShipment(
-
-    //     uint _unload_weight,
-    //     uint _load_value,
-    //     uint _transport_charges
-
-    // ) public {
-
-    //     emit LogShipment(
-    //         shipment_counter,
-    //         msg.sender,
-    //         0x0,
-    //         _name,
-    //         _description,
-    //         _unload_weight,
-    //         _load_value,
-    //         _transport_charges
-    //         );
-    // }
-    // }
-
     function shipmentDamages(
         uint _load_weight,
         uint _unload_weight

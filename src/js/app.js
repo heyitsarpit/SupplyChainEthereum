@@ -73,7 +73,7 @@ App = {
                     _load_value,
                     {
                         from: App.account,
-                        value: web3.toWei(100, 'ether'),
+                        value: web3.toWei(10, 'ether'),
                         gas: 500000
                     }
                 );
