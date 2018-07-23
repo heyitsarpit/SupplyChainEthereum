@@ -47,19 +47,19 @@
     <form>
       <div class="form-group">
         <label for="exampleFormControlInput1">Shipment Name</label>
-        <input class="form-control" id="exampleFormControlInput1">
+        <input class="form-control" id="exampleFormControlInput1" data-target="_name">
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">Load Weight</label>
-        <input class="form-control" id="exampleFormControlInput1" placeholder="10 gallon">
+        <input class="form-control" id="exampleFormControlInput1" placeholder="10 gallon" data-target="_load_weight">
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">Load Price</label>
-        <input class="form-control" id="exampleFormControlInput1" placeholder="100 Ether">
+        <input class="form-control" id="exampleFormControlInput1" placeholder="100 Ether" data-target="_load_price">
       </div>
       <div class="form-group">
         <label for="exampleFormControlTextarea1">Shipment Description</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" data-target= "_description" rows="3"></textarea>
       </div>
     </form>
   </div>
@@ -71,12 +71,12 @@
 </div>
 </div>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#PaymentModal">
   Payment
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="PaymentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -89,7 +89,7 @@
         <form>
           <div class="form-group">
             <label for="exampleInputEmail1">Load Value</label>
-            <input class="form-control" id="exampleInputEmail1">
+            <input class="form-control" id="exampleInputEmail1"data-target= "_load_value">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Amount Payable</label>
@@ -114,7 +114,7 @@
       <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="navbar-inner navbar-content-center text-center">
           <p class="text-muted" credit>
-            <a href="http://chainskills.com">ChainSkills</a> - &copy; 2017 -
+            <a href="http://.com">Supply Chain </a> - &copy; 2017 -
             <a href="https://twitter.com/sarbogast">Archit Aggarwal</a> and
             <a href="https://twitter.com/eloudsa">Arpit Bharti</a>
           </p>

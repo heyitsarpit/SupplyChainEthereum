@@ -11,7 +11,8 @@ contract Shipper_Importer {
         string description;
         uint unload_weight;
         uint load_value;
-        uint transport_charges; //depend on unload_weight    
+        uint transport_charges; //depend on unload_weight  
+        uint miscellaneous_charges;  
     }
 
     uint constant transport_charges = 100;
