@@ -2,7 +2,6 @@ pragma solidity ^0.4.23;
 
 contract metaCoin {
     mapping(address => uint) public balances;
-
     constructor () public{
         balances[msg.sender] = 10000;
     }
