@@ -15,8 +15,8 @@ contract Shipper_Importer {
         uint miscellaneous_charges;
     }
 
-    uint constant transport_charges = 100;
-
+    uint constant transport_charges = 20;
+    uint payment;
     mapping(uint => Shipment) public shipments;
     uint shipment_counter;
 
@@ -63,7 +63,7 @@ contract Shipper_Importer {
         uint time_days = (unload_date - load_date) / 60 / 60 / 24;
         //  emit unloadLogShipment//  emit unloadLogShipment(
         uint time_exceeded_hours = (time_days - 30) * 24;
-        uint payment = transport_charges;
+        payment = transport_charges;
         //if load delivered within 30 days of signing receipt full payment to be made provided no damages.
         if (time_days <= 30 && unload_weight == load_weight) {
             payment += 0;
@@ -91,6 +91,6 @@ contract Shipper_Importer {
     }
 
     function transferFunds(address exporter) public payable{
-        address(exporter).transfer(msg.value);
+        address(exporter).transfer(payment);
     }
 }
