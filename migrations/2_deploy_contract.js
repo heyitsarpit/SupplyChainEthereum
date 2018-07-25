@@ -1,5 +1,5 @@
-var Ship = artifacts.require("./Shipper_Exporter.sol");
+var Driver = artifacts.require("./Driver.sol");
 
 module.exports = function (deployer) {
-    deployer.deploy(Ship);
+    deployer.deploy(Driver);
 }
