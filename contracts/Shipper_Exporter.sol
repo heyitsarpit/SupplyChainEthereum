@@ -13,7 +13,7 @@ contract Shipper_Exporter {
         uint load_weight;
         uint load_value;
     }
-    
+
     uint loadWeight;
 
     mapping(uint => Shipment) public shipments;

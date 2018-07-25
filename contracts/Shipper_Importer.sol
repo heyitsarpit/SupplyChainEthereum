@@ -10,7 +10,7 @@ contract Shipper_Importer {
         uint unload_weight;
         uint load_value;
         uint transport_charges; //depend on unload_weight  
-        uint miscellaneous_charges;  
+        uint miscellaneous_charges;
     }
 
     uint constant transport_charges = 100;
@@ -48,10 +48,12 @@ contract Shipper_Importer {
         uint shipment_id,
         uint unload_weight,
         uint load_date
-    ) public payable{
-        uint load_weight;  //pulled through web3
+    ) public payable {
+        uint load_weight;
+        //pulled through web3
         uint unload_date = block.timestamp;
-        uint time_days = (unload_date - load_date) / 60 / 60 / 24;//  emit unloadLogShipment//  emit unloadLogShipment(
+        uint time_days = (unload_date - load_date) / 60 / 60 / 24;
+        //  emit unloadLogShipment//  emit unloadLogShipment(
         uint time_exceeded_hours = (time_days - 30) * 24;
         uint payment = transport_charges;
         //if load delivered within 30 days of signing receipt full payment to be made provided no damages.
