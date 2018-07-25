@@ -1,5 +1,7 @@
 pragma solidity ^0.4.18;
 
+import "./Shipper_Exporter.sol";
+
 contract Shipper_Importer {
     struct Shipment {
         uint shipment_id;
@@ -25,6 +27,10 @@ contract Shipper_Importer {
         uint payment
     );
 
+    function getAdrress() public returns (address)  {
+        return msg.sender;
+    }
+
     function shipmentDamages(
         uint load_weight,
         uint unload_weight
@@ -48,7 +54,9 @@ contract Shipper_Importer {
         uint shipment_id,
         uint unload_weight,
         uint load_date
-    ) public payable {
+    ) public returns (
+        uint
+    ) {
         uint load_weight;
         //pulled through web3
         uint unload_date = block.timestamp;
@@ -79,5 +87,10 @@ contract Shipper_Importer {
             0x0,
             payment
         );
+        return payment;
+    }
+
+    function transferFunds(address exporter) public payable{
+        address(exporter).transfer(msg.value);
     }
 }

@@ -30,6 +30,10 @@ contract Shipper_Exporter {
         uint load_value
     );
 
+    function getAddress() public returns (address)  {
+        return msg.sender;
+    }
+
     function loadShipment(
         string _name,
         string _description,
@@ -61,6 +65,13 @@ contract Shipper_Exporter {
             load_weight,
             load_value
         );
+    }
+   
+    uint public balance = 0;
+    event recieve(uint value);
+    
+    function () private payable{
+        emit recieve(msg.value);
     }
 
     function getNumberOfShipments() public view returns (uint) {
