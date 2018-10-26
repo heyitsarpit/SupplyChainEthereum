@@ -11,6 +11,9 @@ Clone this repository
 install truffle globally
 
 install Ganache
+
+# Decentralised System
+Ethereum enables this project to be more trusted.
 <!-- 
 ```
 Give examples
