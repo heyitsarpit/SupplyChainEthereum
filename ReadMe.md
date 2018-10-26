@@ -10,7 +10,7 @@ Clone this repository
 
 install truffle globally
 
-install ganache
+install Ganache
 <!-- 
 ```
 Give examples
